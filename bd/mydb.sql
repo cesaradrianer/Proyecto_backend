@@ -19,14 +19,15 @@ USE `mydb` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Profesor` (
   `idProfesor` INT NOT NULL,
-  `nombre` VARCHAR(45) NULL,
-  `apellido` VARCHAR(45) NULL,
-  `telefono` VARCHAR(45) NULL,
-  `email` VARCHAR(45) NULL,
+  `nombreProfesor` VARCHAR(45) NULL,
+  `apellidoProfesor` VARCHAR(45) NULL,
+  `telefonoProfesor` VARCHAR(45) NULL,
+  `correoProfesor` VARCHAR(45) NULL,
   `grupos` VARCHAR(45) NULL,
   `alumnos` VARCHAR(45) NULL,
   PRIMARY KEY (`idProfesor`))
 ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
@@ -34,18 +35,14 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Alumno` (
   `idAlumno` INT NOT NULL,
-  `nombre` VARCHAR(45) NULL,
-  `apellido` VARCHAR(45) NULL,
-  `telefono` VARCHAR(45) NULL,
-  `email` VARCHAR(45) NULL,
+  `nombreAlumno` VARCHAR(45) NULL,
+  `apellidoAlumno` VARCHAR(45) NULL,
+  `telefonoAlumno` VARCHAR(45) NULL,
+  `correoAlumno` VARCHAR(45) NULL,
   PRIMARY KEY (`idAlumno`))
 ENGINE = InnoDB;
 
-INSERT INTO `mydb`.`Calificación` (`idCalificación`,`calificación`,`fecha`) VALUES (1,'5','25feb2021');
-INSERT INTO `mydb`.`Calificación` (`idCalificación`,`calificación`,`fecha`) VALUES (2,'8','13Abril2020');
-INSERT INTO `mydb`.`Calificación` (`idCalificación`,`calificación`,`fecha`) VALUES (3,'10','10Enero2021');
-INSERT INTO `mydb`.`Calificación` (`idCalificación`,`calificación`,`fecha`) VALUES (4,'9','16Sep2021');
-INSERT INTO `mydb`.`Calificación` (`idCalificación`,`calificación`,`fecha`) VALUES (5,'7','21Feb2020');
+
 
 -- -----------------------------------------------------
 -- Table `mydb`.`Calificación`
@@ -66,15 +63,24 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Posts` (
   PRIMARY KEY (`idPost`))
 ENGINE = InnoDB;
 
+INSERT INTO `mydb`.`Posts` (`idPost`) VALUES ('1');
+INSERT INTO `mydb`.`Posts` (`idPost`) VALUES ('2');
+INSERT INTO `mydb`.`Posts` (`idPost`) VALUES ('3');
+INSERT INTO `mydb`.`Posts` (`idPost`) VALUES ('4');
+INSERT INTO `mydb`.`Posts` (`idPost`) VALUES ('5');
 
 -- -----------------------------------------------------
 -- Table `mydb`.`Grupo/Grado`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Grupo/Grado` (
-  `idGrupo` INT NOT NULL,
-  `nombre` VARCHAR(45) NULL,
+CREATE TABLE IF NOT EXISTS `mydb`.`Clase` (
+  `idClase` INT NOT NULL,
+  `clase_name` VARCHAR(45) NULL,
+  `clase_hrinicial` VARCHAR(45) NULL,
+  `clase_hrfinal` VARCHAR(45) NULL,
+  `clase_grado` VARCHAR(45) NULL,
   PRIMARY KEY (`idGrupo`))
 ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
@@ -84,6 +90,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`sub_posts` (
   `idsub_post` INT NOT NULL,
   PRIMARY KEY (`idsub_post`))
 ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
@@ -97,11 +104,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Usuario` (
   PRIMARY KEY (`idUsuario`))
 ENGINE = InnoDB;
 
-INSERT INTO `mydb`.`Usuario` (`idUsuario`,`usuario`,`password`,`tipoUsuario`) VALUES (1,'cesaradrianer','p4ssw0rd',0);
-INSERT INTO `mydb`.`Usuario` (`idUsuario`,`usuario`,`password`,`tipoUsuario`) VALUES (2,'eduvdz','p4ssw0rd',0);
-INSERT INTO `mydb`.`Usuario` (`idUsuario`,`usuario`,`password`,`tipoUsuario`) VALUES (3,'juanjo','p4ssw0rd',0);
-INSERT INTO `mydb`.`Usuario` (`idUsuario`,`usuario`,`password`,`tipoUsuario`) VALUES (4,'paosuarez','p4ssw0rd',0);
-INSERT INTO `mydb`.`Usuario` (`idUsuario`,`usuario`,`password`,`tipoUsuario`) VALUES (5,'gutierritos','p4ssw0rd',0);
+
 
 -- -----------------------------------------------------
 -- Table `mydb`.`Materia`
@@ -112,14 +115,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Materia` (
   PRIMARY KEY (`idMateria`))
 ENGINE = InnoDB;
 
-INSERT INTO `mydb`.`Materia` (`idMateria`,`nombre`) VALUES (1,'Álgebra');
-INSERT INTO `mydb`.`Materia` (`idMateria`,`nombre`) VALUES (2,'Historia');
-INSERT INTO `mydb`.`Materia` (`idMateria`,`nombre`) VALUES (3,'Geografía');
-INSERT INTO `mydb`.`Materia` (`idMateria`,`nombre`) VALUES (4,'Química');
-INSERT INTO `mydb`.`Materia` (`idMateria`,`nombre`) VALUES (5,'Inglés');
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
-
