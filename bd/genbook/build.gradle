@@ -4,7 +4,7 @@ plugins {
 	id 'java'
 }
 
-group = 'genbook'
+group = 'org.genbook'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '16'
 
@@ -13,9 +13,12 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	runtimeOnly 'mysql:mysql-connector-java'
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'com.google.appengine:appengine-tools-sdk:+'
 }
 
 test {
